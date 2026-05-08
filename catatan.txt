@@ -1,0 +1,209 @@
+https://sequelize.org/docs/v6/getting-started/
+
+npx sequelize-cli migration:generate --name create-users
+npx sequelize-cli db:migrate
+npx sequelize-cli db:migrate:undo
+npx sequelize-cli db:migrate:undo:all
+npx sequelize-cli seed:generate --name roles
+
+Struktur yang Direkomendasikan
+Struktur Profesional Node.js
+src/
+│
+├── server.js
+├── routes/
+│   ├── auth.routes.js
+│   ├── mahasiswa.routes.js
+│   ├── dosen.routes.js
+│   ├── prodi.routes.js
+│   └── pembayaran.routes.js
+│
+├── controllers/
+│   ├── auth.controller.js
+│   ├── mahasiswa.controller.js
+│   └── dosen.controller.js
+│
+├── services/
+│   ├── neoFeeder.service.js
+│   └── mahasiswa.service.js
+│
+├── models/
+│   ├── Mahasiswa.js
+│   ├── Dosen.js
+│   └── Prodi.js
+│
+├── middlewares/
+│   ├── auth.js
+│   ├── role.js
+│   └── validation.js
+│
+├── utils/
+├── config/
+└── database/
+
+
+Alur Profesional
+1. Route
+router.get('/', getMahasiswa)
+router.post('/', createMahasiswa)
+
+2. Controller
+export const createMahasiswa = async (req, res) => {
+   const result = await mahasiswaService.create(req.body)
+   res.json(result)
+}
+
+3. Service
+export const create = async (data) => {
+   return await Mahasiswa.create(data)
+}
+
+4. Model ORM
+Jika memakai ORM seperti:
+
+Prisma
+Sequelize
+TypeORM
+Drizzle ORM
+
+CRUD bisa otomatis lebih ringkas.
+
+Contoh Prisma:
+
+await prisma.mahasiswa.findMany()
+await prisma.mahasiswa.create()
+await prisma.mahasiswa.update()
+await prisma.mahasiswa.delete()
+Jangan Buat Semua CRUD Manual
+
+Karena tabel Anda sangat banyak:
+
+users
+roles
+permissions
+mahasiswa
+dosen
+jadwal
+KRS
+KHS
+pembayaran
+dll
+
+
+Gunakan Pattern:
+
+Repository Pattern
+atau
+Service Pattern
+atau
+Modular MVC
+
+Rekomendasi Stack Modern
+Untuk SIAKAD Besar
+Backend
+Node.js
+Express.js / Fastify
+Prisma ORM
+PostgreSQL / MySQL
+Auth
+JWT
+Refresh Token
+Role Permission Middleware
+Validation
+Zod
+Joi
+express-validator
+API Docs
+Swagger/OpenAPI
+
+Bahkan CRUD Bisa Digenerate
+
+Contoh menggunakan Prisma:
+
+npx prisma db pull
+npx prisma generate
+
+ORM akan membaca tabel dan membuat model otomatis.
+
+Sarankan:
+
+Pisahkan Berdasarkan Modul
+Modul Akademik
+prodi
+fakultas
+mata kuliah
+jadwal
+Modul Mahasiswa
+biodata
+KRS
+KHS
+transkrip
+Modul PMB
+pendaftaran
+jalur masuk
+Modul Keuangan
+pembayaran
+riwayat pembayaran
+Modul Sistem
+users
+roles
+permissions
+logs
+api_keys
+
+Arsitektur yang Cocok Untuk Anda
+
+Karena Anda membuat sistem besar SIAKAD + Neo Feeder:
+
+Gunakan:
+Clean Architecture + Service Layer
+
+atau minimal:
+
+MVC Modular
+Contoh Struktur CRUD Mahasiswa
+Route
+router.get('/')
+router.get('/:id')
+router.post('/')
+router.put('/:id')
+router.delete('/:id')
+Controller
+getAll()
+getById()
+store()
+update()
+destroy()
+Service
+createMahasiswa()
+updateMahasiswa()
+syncNeoFeeder()
+generateNIM()
+Kesimpulan
+
+❌ Jangan semua CRUD di server.js
+
+✅ Pisahkan:
+
+routes
+controller
+service
+model
+middleware
+
+✅ Gunakan ORM
+✅ Gunakan modular system
+✅ CRUD per tabel dibuat dalam module masing-masing
+✅ Sangat penting untuk sistem besar seperti SIAKAD Anda
+
+
+Langkah install:
+
+- npm init -y
+Install Package Utama (Express + Prisma + JWT)
+- npm install express cors dotenv jsonwebtoken bcrypt
+- npm install prisma --save-dev
+- npm install @prisma/client
+
+
+
