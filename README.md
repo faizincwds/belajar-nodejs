@@ -15,7 +15,7 @@ Project disiapkan untuk pengembangan sistem akademik / Neo Feeder / SIAKAD.
 
 ---
 
-# 🚀 Tech Stack
+## 🚀 Tech Stack
 
 - Node.js
 - Express.js
@@ -28,7 +28,7 @@ Project disiapkan untuk pengembangan sistem akademik / Neo Feeder / SIAKAD.
 
 ---
 
-# 📂 Struktur Folder
+## 📂 Struktur Folder
 
 ```bash
 src/
@@ -53,16 +53,16 @@ src/
 └── server.js
 ```
 
-# ⚙️ Installasi
+## ⚙️ Installasi
 
-## 1. Clone Project
+### 1. Clone Project
 
 ```bash
 git clone https://github.com/username/neofeeder.git
 cd neofeeder
 ```
 
-## 2. Install Dependencies
+### 2. Install Dependencies
 ```bash
 npm install
 ```
@@ -82,15 +82,15 @@ DB_PASS=
 JWT_SECRET=secretkey123
 ```
 
-# ▶️ Menjalankan Server
-## Development
+## ▶️ Menjalankan Server
+### Development
 ```bash
 npm run dev
 Production
 node src/server.js
 ```
 
-# 🔐 Authentication
+## 🔐 Authentication
 
 Menggunakan:
 
@@ -98,8 +98,8 @@ Menggunakan:
 - Bearer Authentication
 - bcrypt password hashing
 
-# 📌 Endpoint API
-## Register
+## 📌 Endpoint API
+### Register
 ```bash
 POST /api/auth/register
 
@@ -112,7 +112,7 @@ Body:
 }
 ```
 
-## Login
+### Login
 ```bash
 POST /api/auth/login
 
@@ -124,7 +124,7 @@ Body:
 }
 ```
 
-## Response:
+### Response:
 ```bash
 {
   "message": "Login success",
@@ -132,7 +132,7 @@ Body:
 }
 ```
 
-# Profile (Protected Route)
+### Profile (Protected Route)
 ```bash
 GET /api/users/profile
 
@@ -142,7 +142,7 @@ Headers:
 Authorization: Bearer JWT_TOKEN
 ```
 
-# 🛡 Middleware
+## 🛡 Middleware
 auth.middleware.js
 
 Digunakan untuk:
@@ -150,7 +150,7 @@ Digunakan untuk:
 - Protected Route
 - Authorization
 
-# 📦 Sequelize Model
+## 📦 Sequelize Model
 
 User Model
 
@@ -161,7 +161,7 @@ Field:
 - email
 - password
 
-#🔥 Fitur Saat Ini
+Fitur Saat Ini
 - Register User
 - Login JWT
 - Password Hashing
@@ -170,8 +170,8 @@ Field:
 - Sequelize ORM
 - UUID Primary Key
 
-# REST API Structure
-## 📌 Struktur REST API
+## REST API Structure
+### 📌 Struktur REST API
 ```bash
 /api/auth/*
 /api/users/*
@@ -186,13 +186,13 @@ Rencana selanjutnya:
 /api/pembayaran/*
 ```
 
-# 🧪 Testing API
+### 🧪 Testing API
 
 Disarankan menggunakan:
 
 - Postman / Insomnia / Thunder Client VSCode
 
-# 📌 Notes
+### 📌 Notes
 
 Jika menggunakan ES Module:
 ```bash
